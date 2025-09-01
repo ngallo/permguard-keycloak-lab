@@ -17,7 +17,7 @@ services:
       KC_HEALTH_ENABLED: "true"
       KC_MANAGEMENT_ENABLED: "true"
     # volumes:
-    #   - ./keycloak/import:/opt/keycloak/data/import
+    #   - ./keycloak/configs/import:/opt/keycloak/data/import
     ports:
       - "8080:8080"
       - "9000:9000"
