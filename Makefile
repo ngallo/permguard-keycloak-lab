@@ -27,7 +27,7 @@ down:
 
 # Start services
 up:
-	$(DOCKER_COMPOSE) -p lab up -d
+	$(DOCKER_COMPOSE) up -d
 
 setup:
 	@eval "$$(pyenv init -)"; eval "$$(pyenv virtualenv-init -)"; \

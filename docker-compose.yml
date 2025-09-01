@@ -23,15 +23,15 @@ services:
       - "9000:9000"
     healthcheck:
       test: ["CMD-SHELL", "sh -c '(exec 3<>/dev/tcp/127.0.0.1/9000) 2>/dev/null'"]
-      interval: 10s
+      interval: 5s
       timeout: 5s
       retries: 10
-      start_period: 10s
+      start_period: 5s
     depends_on:
       permguard:
         condition: service_healthy
 
-  provisioner:
+  keycloack-provisioner:
     build:
       context: ./keycloak/provisioner
       dockerfile: Dockerfile
