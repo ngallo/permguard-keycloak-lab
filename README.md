@@ -10,6 +10,13 @@ Before running this lab environment, make sure you have the following installed:
 - [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/)  
 - [Permguard CLI](https://github.com/permguard/permguard)
 
+Optional prerequisites depending on what you want to run locally:  
+
+- [Go](https://go.dev/dl/) **1.24.6 or above**  
+  > Required only if you plan to build or run the Go components directly.  
+- [Python](https://www.python.org/downloads/) **3.11.8 or above**  
+  > Required only if you plan to run the Python provisioning scripts outside Docker.  
+
 ## Project Structure
 
 ```md
