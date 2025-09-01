@@ -1,0 +1,24 @@
+services:
+  keycloak-idp:
+    image: quay.io/keycloak/keycloak:26.2.5
+    container_name: keycloak
+    command: start-dev --import-realm
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_CONFIG_FILE: /opt/keycloak/conf/keycloak.conf
+    volumes:
+      - ./keycloak/import:/opt/keycloak/data/import
+    ports:
+      - "8080:8080"
+    depends_on:
+      permguard:
+        condition: service_healthy
+    
+  permguard:
+    image: permguard/all-in-one:0.0.8
+    container_name: permguard
+    ports:
+      - "9091:9091"
+      - "9092:9092"
+      - "9094:9094"
