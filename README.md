@@ -24,9 +24,9 @@ permguard-keycloak-lab/
     └── ...  
 ```
 
-- **keycloak/** → contains Keycloak realm export and setup  
-- **permguard/** → contains Permguard configuration and examples  
-- **workspace/** → sandbox for testing policies with Permguard  
+- **keycloak/** → contains Keycloak configuration
+- **permguard/** → contains Permguard configuration  
+- **workspace/** → workspace for Permguard
 
 ## Run Locally
 
