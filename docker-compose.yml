@@ -27,12 +27,15 @@ services:
       timeout: 5s
       retries: 10
       start_period: 10s
+    depends_on:
+      permguard:
+        condition: service_healthy
 
   provisioner:
     build:
-      context: ./provisioner
+      context: ./keycloak/provisioner
       dockerfile: Dockerfile
-    container_name: provisioner
+    container_name: keycloack-provisioner
     environment:
       PYTHONUNBUFFERED: 1
       KEYCLOAK_URL: "http://localhost:8080"
@@ -40,7 +43,5 @@ services:
       ADMIN_USER: "admin"
       ADMIN_PASS: "admin"
     depends_on:
-      permguard:
-        condition: service_healthy
       keycloak:
         condition: service_healthy

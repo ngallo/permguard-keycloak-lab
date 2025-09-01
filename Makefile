@@ -3,7 +3,7 @@
 DOCKER = docker
 DOCKER_COMPOSE = docker-compose
 
-PROVISIONER_DIR := provisioner
+PROVISIONER_DIR := keycloak/provisioner
 PYENV_PY        := 3.11.9
 PYENV_VENV      := provisioner
 
@@ -27,7 +27,7 @@ down:
 
 # Start services
 up:
-	$(DOCKER_COMPOSE) up -d
+	$(DOCKER_COMPOSE) -p lab up -d
 
 setup:
 	@eval "$$(pyenv init -)"; eval "$$(pyenv virtualenv-init -)"; \
