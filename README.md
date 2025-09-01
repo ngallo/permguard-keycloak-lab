@@ -8,7 +8,7 @@ It is intended as a reference for developers exploring policy-based access contr
 Before running this lab environment, make sure you have the following installed:
 
 - [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/)  
-- [Permguard CLI](https://github.com/permguard/permguard) installed locally and available in your `$PATH`
+- [Permguard CLI](https://github.com/permguard/permguard)
 
 ## Project Structure
 
