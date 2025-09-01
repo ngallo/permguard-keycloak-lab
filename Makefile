@@ -12,6 +12,18 @@ PYENV_VENV      := provisioner
 # Default target
 default: up
 
+# Local setup
+setup:
+	@eval "$$(pyenv init -)"; eval "$$(pyenv virtualenv-init -)"; \
+	pyenv install -s $(PYENV_PY); \
+	if ! pyenv virtualenvs --bare | grep -qx "$(PYENV_VENV)"; then \
+	  pyenv virtualenv $(PYENV_PY) $(PYENV_VENV); \
+	fi; \
+	cd "$(PROVISIONER_DIR)"; \
+	PYENV_VERSION="$(PYENV_VENV)" pyenv exec python -m pip install --upgrade pip; \
+	PYENV_VERSION="$(PYENV_VENV)" pyenv exec pip install -r requirements.txt
+
+
 # Destroy services
 destroy:
 	$(DOCKER_COMPOSE) down -v --remove-orphans
@@ -28,13 +40,3 @@ down:
 # Start services
 up:
 	$(DOCKER_COMPOSE) up -d
-
-setup:
-	@eval "$$(pyenv init -)"; eval "$$(pyenv virtualenv-init -)"; \
-	pyenv install -s $(PYENV_PY); \
-	if ! pyenv virtualenvs --bare | grep -qx "$(PYENV_VENV)"; then \
-	  pyenv virtualenv $(PYENV_PY) $(PYENV_VENV); \
-	fi; \
-	cd "$(PROVISIONER_DIR)"; \
-	PYENV_VERSION="$(PYENV_VENV)" pyenv exec python -m pip install --upgrade pip; \
-	PYENV_VERSION="$(PYENV_VENV)" pyenv exec pip install -r requirements.txt
