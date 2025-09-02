@@ -1,3 +1,3 @@
 # Permguard Setup
 
-This folder implements the Permguard configuration.
+This folder implements the Permguard setup.
