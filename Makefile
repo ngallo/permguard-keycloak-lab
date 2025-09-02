@@ -7,6 +7,8 @@ PROVISIONER_DIR := keycloak/provisioner
 PYENV_PY        := 3.11.9
 PYENV_VENV      := provisioner
 
+GO_APP_DIR := apps/go-smarthome
+
 .PHONY: clean down up
 
 # Default target
@@ -40,3 +42,15 @@ down:
 # Start services
 up:
 	$(DOCKER_COMPOSE) up -d
+
+# Run the Go app directly from source
+run-go:
+	cd $(GO_APP_DIR) && go run ./cmd/server
+
+# Build the Go app binary
+build-go:
+	cd $(GO_APP_DIR) && go build -o bin/go-smarthome ./cmd/server
+
+# Run the Go app from the compiled binary
+start-go: build-go
+	./$(GO_APP_DIR)/bin/go-smarthome
