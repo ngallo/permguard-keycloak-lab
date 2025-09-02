@@ -1,30 +1,30 @@
-# Permguard Integration with Keycloak
+# Getting Started Lab: Permguard + Keycloak  
 
-This repository provides a **lab environment** demonstrating how to integrate **Permguard** with **Keycloak** for authentication and authorization experiments.  
-It is intended as a reference for developers exploring policy-based access control with Permguard, backed by Keycloak identity management.  
+This repository provides a **hands-on lab environment** to demonstrate how **Permguard** can be integrated with **Keycloak**.  
+It serves as a **practical reference** for developers experimenting with **policy-based access control (PBAC)** using Permguard, powered by **Keycloak’s IAM**.  
 
-## Prerequisites
+## Prerequisites  
 
-Before running this lab environment, make sure you have the following installed:
+Make sure you have the following installed before running the lab:  
 
 - [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/)  
-- [Permguard CLI](https://github.com/permguard/permguard)
+- [Permguard CLI](https://github.com/permguard/permguard)  
 
-Optional prerequisites depending on what you want to run locally:  
+Optional (depending on what you want to run locally):  
 
-- [Go](https://go.dev/dl/) **1.24.6 or above**  
-  > Required only if you plan to build or run the Go components directly.  
-- [Python](https://www.python.org/downloads/) **3.11.8 or above**  
-  > Required only if you plan to run the Python provisioning scripts outside Docker.  
+- [Go](https://go.dev/dl/) **1.24.6+**  
+  > Only required if you want to build/run Go components directly.  
+- [Python](https://www.python.org/downloads/) **3.11.8+**  
+  > Only required if you plan to run provisioning scripts outside Docker.  
 
 ## Project Structure
 
 ```md
 permguard-keycloak-lab/  
 ├── docs/                # Documentation and diagrams  
-├── keycloak/            # Keycloak configuration  
+├── keycloak/            # Keycloak setup  
 │   └── ...  
-├── permguard/           # Permguard configuration  
+├── permguard/           # Permguard setup  
 │   └── ...  
 └── workspace/           # Permguard workspace
     ├── policies/  
